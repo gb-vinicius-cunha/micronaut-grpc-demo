@@ -1,0 +1,34 @@
+# Micronaut
+micronaut:
+  application:
+    name: demo-grpc
+  metrics:
+    enabled: true
+    export:
+      newrelic:
+        enabled: true
+        accountId: any-account
+        apiKey: any-key
+        serviceName: demo-grpc
+        step: PT1M
+
+endpoints:
+  metrics:
+    enabled: true
+    sensitive: true
+
+# GRPC
+grpc:
+  server:
+    port: 8080
+
+# TRACING
+tracing:
+  zipkin:
+    enabled: true
+    traceId128Bit: true
+    sampler:
+      probability: 1
+    http:
+      url: https://trace-api.newrelic.com?Api-Key=any-key&Data-Format=zipkin&Data-Format-Version=2
+      path: /trace/v1

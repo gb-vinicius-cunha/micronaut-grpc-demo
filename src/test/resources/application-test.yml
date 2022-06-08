@@ -1,0 +1,11 @@
+grpc:
+  server:
+    port: 50052
+  channels:
+    demo-service:
+      target: localhost:50052
+      plaintext: true
+      
+tracing:
+  jaeger:
+    enabled: false

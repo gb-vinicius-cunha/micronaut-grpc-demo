@@ -1,0 +1,9 @@
+### IDE ###
+.idea
+
+.gradle/
+out/
+build/
+
+### SO ###
+.DS_Store
