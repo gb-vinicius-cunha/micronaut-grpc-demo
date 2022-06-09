@@ -1,6 +1,7 @@
 package br.com.vroc.demo.application.metrics
 
 import io.micrometer.core.instrument.MeterRegistry
+import io.micronaut.aop.InterceptorBean
 import io.micronaut.aop.MethodInterceptor
 import io.micronaut.aop.MethodInvocationContext
 import io.micronaut.context.annotation.Requires
@@ -11,6 +12,7 @@ import java.util.concurrent.TimeUnit.MILLISECONDS
 
 @Singleton
 @Requires(bean = MeterRegistry::class)
+@InterceptorBean(Monitorable::class)
 class MetricInterceptor(
     private val meterRegistry: MeterRegistry
 ) : MethodInterceptor<Any, Any> {
